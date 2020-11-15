@@ -10,7 +10,7 @@ def get_env(var: str):
     return str(os.environ.get(var))
 
 # This function to get date time now with custom format
-def date_now(pattern: str):
+def date_now(pattern: str = '%d %b %Y %H:%M:%S'):
     return datetime.now().strftime(pattern)
 
 # This function to get user ip address
