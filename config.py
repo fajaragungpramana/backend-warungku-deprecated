@@ -1,8 +1,8 @@
 from application.utils import get_env
 
 # This is to configuration database mysql with the api
-class Config:
+class Config(object):
     APPLICATION_ROOT = get_env('APPLICATION_ROOT')
-    SQLALCHEMY_DATABASE_URL = get_env('SQLALCHEMY_DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = get_env('SQLALCHEMY_DATABASE_URI')
     SQLALCHEMY_TRACK_MODIFICATIONS = get_env('SQLALCHEMY_TRACK_MODIFICATIONS')
     SQLALCHEMY_RECORD_QUERIES = get_env('SQLALCHEMY_RECORD_QUERIES')
