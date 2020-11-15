@@ -8,10 +8,11 @@ class OwnerModel(db.Model):
     __tablename__ = 'owners'
 
     raw = Column(Integer, primary_key=True, autoincrement=True)
-    id = Column(String(100), unique=True, nullable=False, default=get_unique_id())
-    photo = Column(String(100), unique=True)
+    id = Column(String(100), nullable=False, default=get_unique_id())
+    photo = Column(String(100))
     full_name = Column(String(50), nullable=False)
     address = Column(String(150))
+    email = Column(String(50), nullable=False)
     password = Column(String(100), nullable=False)
     create_at = Column(String(30), default=date_now())  # 15 Nov 2020 11:17:00
     update_at = Column(String(30), default=date_now())  # 15 Nov 2020 11:17:00
