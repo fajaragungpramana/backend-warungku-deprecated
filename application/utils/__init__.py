@@ -15,7 +15,7 @@ def date_now(pattern: str):
 
 # This function to get user ip address
 def get_ip_address():
-    return request.remote_addr
+    return str(request.remote_addr)
 
 # This to generate unique id
 def get_unique_id():
