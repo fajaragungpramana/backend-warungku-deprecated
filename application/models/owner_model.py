@@ -2,7 +2,6 @@ from application import db
 from sqlalchemy import Column, Integer, String
 from application.utils import date_now, get_ip_address, get_unique_id
 
-now = date_now('%d %b %Y %H:%M:%S') # 15 Nov 2020 11:17:00
 
 # Database owner model schema
 class OwnerModel(db.Model):
@@ -14,8 +13,8 @@ class OwnerModel(db.Model):
     full_name = Column(String(50), nullable=False)
     address = Column(String(150))
     password = Column(String(100), nullable=False)
-    create_at = Column(String(30), default=now)
-    update_at = Column(String(30), default=now)
+    create_at = Column(String(30), default=date_now())  # 15 Nov 2020 11:17:00
+    update_at = Column(String(30), default=date_now())  # 15 Nov 2020 11:17:00
     ip_address = Column(String(30), default=get_ip_address())
 
     def __repr__(self):
