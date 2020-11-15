@@ -1,7 +1,7 @@
 import os
 import uuid
+import requests
 
-from flask import request
 from datetime import datetime
 
 # This function to get .env variable configuration
@@ -15,7 +15,7 @@ def date_now(pattern: str):
 
 # This function to get user ip address
 def get_ip_address():
-    return str(request.remote_addr)
+    return requests.get('https://ipinfo.io/').json()['ip']
 
 # This to generate unique id
 def get_unique_id():
