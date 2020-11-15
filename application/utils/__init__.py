@@ -1,5 +1,6 @@
 import os
 
+from flask import request
 from datetime import datetime
 
 # This function to get .env variable configuration
@@ -10,3 +11,7 @@ def get_env(var: str):
 # This function to get date time now with custom format
 def date_now(pattern: str):
     return datetime.now().strftime(pattern)
+
+# This function to get user ip address
+def get_ip_address():
+    return request.remote_addr
