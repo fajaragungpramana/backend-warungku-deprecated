@@ -19,4 +19,4 @@ def get_ip_address():
 
 # This to generate unique id
 def get_unique_id():
-    return uuid.uuid4()
+    return str(uuid.uuid4())
