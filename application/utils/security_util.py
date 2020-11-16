@@ -3,7 +3,7 @@ from flask import request
 
 from application.utils import get_env, response_util
 
-def access_key(view_function):
+def access_key_owner(view_function):
     @wraps(view_function)
     def decorated_function(*args, **kwargs):
         if request.headers.get('access_key_owner') == get_env('ACCESS_KEY_OWNER'):
