@@ -48,6 +48,20 @@ latitude    : VARCHAR(30) NULL
 longitude   : VARCHAR(30) NULL
 ```
 
+### Verifications
+```bash
+table       : verifications
+```
+```bash
+row         : INTEGER NOT NULL PRIMARY KEY AUTO INCREMENT
+owner_id    : VARCHAR(100) NOT NULL FOREIGN KEY OWNERS (ID)
+name        : VARCHAR(50) NOT NULL
+account     : VARCHAR(30) NOT NULL
+email       : BOOLEAN NOT NULL
+phone       : BOOLEAN NOT NULL
+code        : INTEGER
+```
+
 # EndPoint SPEC
 This is endpoint api
 
