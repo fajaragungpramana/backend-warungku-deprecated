@@ -5,10 +5,10 @@ from application.utils import is_none, response_util
 from application import db
 
 # This is function to do owner registration
-async def register(owner: OwnerModel):
+def register(owner: OwnerModel):
     if is_none(owner.full_name) or is_none(owner.email) or is_none(owner.password):
-        response_util.http_bad_request('Fill all the request body!')
-
+        return response_util.http_bad_request('Fill all the request body!')
+    else:
         owner_query = OwnerModel.query.filter_by(email=owner.email).first()
         if owner_query:
             return response_util.http_not_acceptable('Owner with a same email is already exist!')
