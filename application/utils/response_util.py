@@ -10,6 +10,14 @@ def http_forbidden():
         'data': None
     }, HTTPStatus.FORBIDDEN)
 
+# Handle response server error
+def http_internal_server_error():
+    return json_response({
+        'status': 'Internal Server Error',
+        'message': 'Invalid api key!',
+        'data': None
+    }, HTTPStatus.INTERNAL_SERVER_ERROR)
+
 # Handle response bad data sent from client
 def http_bad_request(message: str, data = None):
     return json_response({
