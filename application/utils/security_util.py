@@ -2,7 +2,7 @@ from functools import wraps
 from flask import request
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from application.utils import get_env, response_util
+from . import get_env, response_util
 
 # Access key owner, using this to end point WarungKu-Owner
 def access_key_owner(view_function):
@@ -16,7 +16,10 @@ def access_key_owner(view_function):
 
 # Hashing password from user
 def hash_password(password: str):
-    return generate_password_hash(password)
+    if password is not None:
+        return generate_password_hash(password)
+    else:
+        return None
 
 # Verify password from user
 def verify_password(hashed_password: str, password: str):
