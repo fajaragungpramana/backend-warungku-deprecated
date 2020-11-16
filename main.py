@@ -5,6 +5,7 @@ from application.utils.security_util import access_key_owner
 from application.utils import get_post
 from application.utils import security_util
 
+# Route owner registration
 @app.route('/warungku/owner/auth/register', methods=['POST'])
 @access_key_owner
 async def owner_register():
