@@ -10,7 +10,7 @@ class OwnerModel(db.Model):
     photo = db.Column(db.String(100))
     full_name = db.Column(db.String(50), nullable=False)
     address = db.Column(db.String(150))
-    store = db.relationship('StoreModel', backref='owner_id')
+    store = db.relationship('StoreModel', backref='owners')
     email = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(100), nullable=False)
     create_at = db.Column(db.String(30), default=date_now())  # 15 Nov 2020 11:17:00
