@@ -28,6 +28,4 @@ def json_response(response: dict, http_code: int):
 
 # This to verify value is none or not
 def is_none(value):
-    if value is not None:
-        return True
-    return False
+    return isinstance(value, type(None))
