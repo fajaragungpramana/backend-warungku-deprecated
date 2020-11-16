@@ -15,6 +15,7 @@ def register(owner: OwnerModel):
         else:
             try:
                 db.session.add(owner)
+                db.session.add(owner.store[0])
                 db.session.commit()
             except HTTPException:
                 return response_util.http_internal_server_error()
