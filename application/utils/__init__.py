@@ -3,7 +3,7 @@ import uuid
 import requests
 
 from datetime import datetime
-from flask import jsonify, make_response
+from flask import jsonify, make_response, request
 
 # This function to get .env variable configuration
 # @params var - fill with the same variable name in .env configuration
@@ -29,3 +29,7 @@ def json_response(response: dict, http_code: int):
 # This to verify value is none or not
 def is_none(value):
     return isinstance(value, type(None))
+
+# This to get body or form data
+def get_post(var: str):
+    return request.form.get(var)
