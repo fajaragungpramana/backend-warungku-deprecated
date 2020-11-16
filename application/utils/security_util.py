@@ -3,6 +3,7 @@ from flask import request
 
 from application.utils import get_env, response_util
 
+# Access key owner, using this to end point WarungKu-Owner
 def access_key_owner(view_function):
     @wraps(view_function)
     def decorated_function(*args, **kwargs):
