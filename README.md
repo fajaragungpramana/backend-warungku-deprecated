@@ -59,11 +59,10 @@ This is global response all endpoint can show it
 ```
 
 ### OwnerRegister
-This endpoint provide user to registration owner account
-
+<b>/owner/auth/register</b>. This endpoint provide user to registration owner account
 ###### Header
 ```bash
-access_key_owner    : Owner Key 
+access_key_owner    : Key Owner 
 ```
 ###### Body
 ```bash
@@ -98,7 +97,7 @@ password    : String
 ```
 
 ### OwnerLogin
-This endpoint provide user to login owner account
+<b>/owner/auth/login</b>. This endpoint provide user to login owner account
 
 ###### Header
 ```bash
