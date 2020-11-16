@@ -20,3 +20,9 @@ def get_ip_address():
 # This to generate unique id
 def get_unique_id():
     return str(uuid.uuid4())
+
+# This to verify value is none or not
+def is_none(value):
+    if value is not None:
+        return True
+    return False
