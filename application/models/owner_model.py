@@ -1,6 +1,9 @@
 from application import db
 from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
+
 from application.utils import date_now, get_ip_address, get_unique_id
+from .owner_store_model import OwnerStoreModel
 
 
 # Database owner model schema
@@ -12,6 +15,7 @@ class OwnerModel(db.Model):
     photo = Column(String(100))
     full_name = Column(String(50), nullable=False)
     address = Column(String(150))
+    store = relationship(OwnerStoreModel, backref=OwnerStoreModel.owner_id, lazy=True)
     email = Column(String(50), nullable=False)
     password = Column(String(100), nullable=False)
     create_at = Column(String(30), default=date_now())  # 15 Nov 2020 11:17:00
