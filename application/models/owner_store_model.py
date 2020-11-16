@@ -4,7 +4,7 @@ from application import db
 
 # Database owner store model schema
 class OwnerStoreModel(db.Model):
-    __tablename__ = 'owners_store'
+    __tablename__ = 'stores'
 
     row = Column(Integer, primary_key=True, autoincrement=True)
     owner_id = Column(String(100), ForeignKey('owners.id'), nullable=False)
