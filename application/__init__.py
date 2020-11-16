@@ -10,3 +10,4 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 from .models.owner_model import OwnerModel
+from .models.owner_store_model import OwnerStoreModel
