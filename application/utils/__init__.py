@@ -4,7 +4,6 @@ import requests
 
 from datetime import datetime
 from flask import jsonify, make_response
-from http import HTTPStatus
 
 # This function to get .env variable configuration
 # @params var - fill with the same variable name in .env configuration
