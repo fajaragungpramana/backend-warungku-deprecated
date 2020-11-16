@@ -6,7 +6,7 @@ from application import db
 class OwnerStoreModel(db.Model):
     __tablename__ = 'stores'
 
-    row = Column(Integer, primary_key=True, autoincrement=True)
+    row = Column(Integer, primary_key=True)
     owner_id = Column(String(100), ForeignKey('owners.id'), nullable=False)
     name = Column(String(50), nullable=False)
     address = Column(String(150), nullable=False)
