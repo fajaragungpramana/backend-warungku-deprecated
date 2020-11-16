@@ -18,6 +18,14 @@ def http_internal_server_error():
         'data': None
     }, HTTPStatus.INTERNAL_SERVER_ERROR)
 
+# Handle response ok
+def http_ok(message: str, data = None):
+    return json_response({
+        'status': 'Ok',
+        'message': message,
+        'data': data
+    }, HTTPStatus.OK)
+
 # Handle response server created new data
 def http_created(message: str, data = None):
     return json_response({
@@ -41,3 +49,11 @@ def http_not_acceptable(message: str, data = None):
         'message': message,
         'data': data
     }, HTTPStatus.NOT_ACCEPTABLE)
+
+# Handle response user unauthorized
+def http_unauthorized(message: str, data = None):
+    return json_response({
+        'status': 'Unauthorized',
+        'message': message,
+        'data': data
+    }, HTTPStatus.UNAUTHORIZED)
