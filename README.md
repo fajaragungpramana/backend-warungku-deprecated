@@ -17,7 +17,7 @@ Key Owner   : ba674290781901e3b093eabdc0a186b51477598a565d8cf840da22276c344b51
 # Database SPEC
 This is database schema
 
-### Owner
+### Owners
 ```bash
 tablename   : owners
 ```
@@ -27,11 +27,25 @@ id          : VARCHAR(100) NOT NULL
 photo       : VARCHAR(100) NULL
 full_name   : VARCHAR(50) NOT NULL
 address     : VARCHAR(150) NULL
+store       : RELATIONSHIP STORES
 email       : VARCHAR(50) NOT NULL
 password    : VARCHAR(100) NOT NULL
 create_at   : VARCHAR(30) NULL
 update_at   : VARCHAR(30) NULL
 ip_address  : VARCHAR(30) NULL
+```
+
+### Stores
+```bash
+tablename   : stores
+```
+```bash
+row         : INTEGER NOT NULL PRIMARY KEY AUTO INCREMENT
+owner_id    : VARCHAR(100) NOT NULL FOREIGN KEY OWNERS (ID)
+name        : VARCHAR(50) NOT NULL
+address     : VARCHAR(150) NULL 
+latitude    : VARCHAR(30) NULL
+longitude   : VARCHAR(30) NULL
 ```
 
 # EndPoint SPEC
