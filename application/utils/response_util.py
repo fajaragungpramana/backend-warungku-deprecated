@@ -17,3 +17,11 @@ def http_bad_request(message: str, data = None):
         'message': message,
         'data': data
     }, HTTPStatus.BAD_REQUEST)
+
+# Handle response data sent not accepted
+def http_not_acceptable(message: str, data = None):
+    return json_response({
+        'status': 'Not Acceptable',
+        'message': message,
+        'data': data
+    }, HTTPStatus.NOT_ACCEPTABLE)
