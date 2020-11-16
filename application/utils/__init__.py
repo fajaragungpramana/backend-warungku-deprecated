@@ -3,7 +3,12 @@ import uuid
 import requests
 
 from datetime import datetime
+
+from dotenv import load_dotenv
 from flask import jsonify, make_response, request
+
+# get .env path and set it
+load_dotenv('../backend-warungku/.env')
 
 # This function to get .env variable configuration
 # @params var - fill with the same variable name in .env configuration
