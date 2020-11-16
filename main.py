@@ -21,5 +21,14 @@ def owner_register():
     return owner_controller.register(owner)
 
 
+# Route owner login
+@app.route('/warungku/owner/auth/login', methods=['POST'])
+@security_util.access_key_owner
+def owner_login():
+    return owner_controller.login(
+        OwnerModel(email=get_post('email'), password=get_post('password'))
+    )
+
+
 if __name__ == '__main__':
     app.run()
