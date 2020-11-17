@@ -182,7 +182,8 @@ access_key_owner    : Key Owner
 ```
 ###### Body
 ```bash
-id       : String
+account_id          : String
+account_email       : String
 ```
 ###### Response 200
 ```json5
@@ -208,6 +209,43 @@ id       : String
 {
   status  : "Not Found",
   message : "Account id not found!",
+  data    : null 
+}
+```
+
+### OwnerVerificationAccount [POST]
+<b>owner/auth/verification</b>. This endpoint to verify owner account 
+
+###### Header
+```bash
+access_key_owner    : Key Owner
+```
+###### Body
+```bash
+account_id          : String
+account_code        : Int        
+```
+###### Response 200
+```json5
+{
+  status  : "OK",
+  message : "Account verification success!",
+  data    : null
+}
+```
+###### Response 400
+```json5
+{
+  status  : "Bad Request",
+  message : "Fill all the request body!",
+  data    : null
+}
+```
+###### Response 406
+```json5
+{
+  status  : "Not Acceptable",
+  message : "Wrong verification code!",
   data    : null 
 }
 ```
