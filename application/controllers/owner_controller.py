@@ -64,7 +64,7 @@ def verification_code(account_id: str, account_email: str):
     else:
         verification_query = VerificationModel.query.filter_by(owner_id=account_id).first()
         if not verification_query:
-            return response_util.http_bad_request('account id not found!')
+            return response_util.http_not_acceptable('account id not found!')
         else:
             generated_code = random.randint(000000, 999999)
             verification_query.code = generated_code
