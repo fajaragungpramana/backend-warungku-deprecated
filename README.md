@@ -190,8 +190,8 @@ id       : String
   status  : "OK",
   message : "Code verification has been sent!",
   data    : {
-          access_token  : "db338f42-365c-4711-87d2-1ad2bb4c2642",
-          expired       : "1 Minutes"                
+     access_token  : "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MDU1ODU2MDAsIm5iZiI6MTYwNTU4NTYwMCwianRpIjoiMGU0NzBlMWItYmUxZS00NmJkLWI3MDEtMmQ2ZWRhNjk2M2M5IiwiZXhwIjoxNjA1NTg1NjYwLCJpZGVudGl0eSI6WyJmMDRmYWM1Ny0yZjMxLTRhZmMtOTViYi0wYmI1YTZkYWM3YmEiXSwiZnJlc2giOnRydWUsInR5cGUiOiJhY2Nlc3MifQ.QR3-t3oeoDUt58da6o1Ce8F--5-3upi90wkINrcYb-I",
+     expired       : "1 Minutes"                
   } 
 }
 ```
@@ -199,7 +199,15 @@ id       : String
 ```json5
 {
   status  : "Bad Request",
-  message : "account id not found!",
+  message : "Fill all the request body!",
   data    : null
+}
+```
+###### Response 406
+```json5
+{
+  status  : "Not Acceptable",
+  message : "Account id not found!",
+  data    : null 
 }
 ```
