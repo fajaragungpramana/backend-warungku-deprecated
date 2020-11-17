@@ -172,3 +172,34 @@ password    : String
   data    : null 
 }
 ```
+
+### OwnerVerification
+<b>owner/auth/code</b>. This endpoint provide user to login owner account
+
+###### Header
+```bash
+access_key_owner    : Key Owner
+```
+###### Body
+```bash
+id       : String
+```
+###### Response 200
+```json5
+{
+  status  : "OK",
+  message : "Code verification has been sent!",
+  data    : {
+          access_token  : "db338f42-365c-4711-87d2-1ad2bb4c2642",
+          expired       : "1 Minutes"                
+  } 
+}
+```
+###### Response 400
+```json5
+{
+  status  : "Bad Request",
+  message : "account id not found!",
+  data    : null
+}
+```
