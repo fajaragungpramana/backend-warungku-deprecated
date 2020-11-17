@@ -173,8 +173,8 @@ password    : String
 }
 ```
 
-### OwnerVerification
-<b>owner/auth/code</b>. This endpoint provide user to login owner account
+### GlobalVerification
+<b>auth/code</b>. This endpoint provide user to login owner account
 
 ###### Header
 ```bash
