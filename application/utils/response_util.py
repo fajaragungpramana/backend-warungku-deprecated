@@ -57,3 +57,11 @@ def http_unauthorized(message: str, data = None):
         'message': message,
         'data': data
     }, HTTPStatus.UNAUTHORIZED)
+
+# Handle response not found
+def http_not_found(message: str, data = None):
+    return json_response({
+        'status': 'Not Found',
+        'message': message,
+        'data': data
+    }, HTTPStatus.NOT_FOUND)
