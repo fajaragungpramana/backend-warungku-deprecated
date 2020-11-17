@@ -8,12 +8,11 @@ from application import db
 
 # This is function to do owner registration
 def register(owner: OwnerModel):
-
     owner.verification.append(
         VerificationModel(
-            owner_id = owner.id,
-            name = owner.full_name,
-            account = 'OWNER'
+            owner_id=owner.id,
+            name=owner.full_name,
+            account='OWNER'
         )
     )
 
@@ -33,9 +32,8 @@ def register(owner: OwnerModel):
                 return response_util.http_internal_server_error()
 
         return response_util.http_created('Owner account has been created!', {
-                    'id': owner.id
-                })
-
+            'id': owner.id
+        })
 
 # This function to do owner login
 def login(owner: OwnerModel):
@@ -52,3 +50,7 @@ def login(owner: OwnerModel):
                 return response_util.http_ok('Owner login success!', {
                     'id': owner_query.id
                 })
+
+# This function to sent a code verification through email
+def verification_code(id: str):
+    return 0
