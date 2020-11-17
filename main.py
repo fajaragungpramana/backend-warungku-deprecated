@@ -1,6 +1,6 @@
 from application import app, OwnerModel, StoreModel
 from application.controllers import owner_controller
-from application.utils import get_post, security_util, get_unique_id
+from application.utils import get_post, get_param, security_util, get_unique_id
 
 
 # Route owner registration
@@ -27,6 +27,15 @@ def owner_register():
 def owner_login():
     return owner_controller.login(
         OwnerModel(email=get_post('email'), password=get_post('password'))
+    )
+
+
+# Route owner verification code
+@app.route('/warungku/owner/auth/code', methods=['GET'])
+@security_util.access_key_owner
+def owner_verification_code():
+    return owner_controller.verification_code(
+        get_param('account_id'), get_param('account_email')
     )
 
 
