@@ -49,18 +49,17 @@ def verification_account(account_id: str, account_code: int):
     if is_none(account_id) or is_none(account_code):
         return response_util.http_bad_request('Fill all the request body!')
     else:
-        verification_query = VerificationModel.query.filter_by(owner_id=account_id).first()
+        verification_query = VerificationModel.query.filter(
+            (VerificationModel.owner_id == account_id) or (VerificationModel.code == account_code)
+        ).first()
         if not verification_query:
-            return response_util.http_not_found('account id not found!')
+            return response_util.http_not_acceptable('Wrong verification code!')
         else:
-            if not verification_query.code == account_code:
-                return response_util.http_not_acceptable('Wrong verification code!')
-            else:
-                verification_query.email = True
+            verification_query.email = True
 
-                try:
-                    db.session.commit()
-                except HTTPException:
-                    return response_util.http_internal_server_error()
+            try:
+                db.session.commit()
+            except HTTPException:
+                return response_util.http_internal_server_error()
 
-                return response_util.http_ok('Account verification success!')
+            return response_util.http_ok('Account verification success!')
