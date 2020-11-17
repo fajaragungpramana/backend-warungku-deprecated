@@ -14,7 +14,7 @@ def verification_code(account_id: str, account_email: str):
     else:
         verification_query = VerificationModel.query.filter_by(owner_id=account_id).first()
         if not verification_query:
-            return response_util.http_not_acceptable('account id not found!')
+            return response_util.http_not_found('account id not found!')
         else:
             generated_code = random.randint(000000, 999999)
             verification_query.code = generated_code
@@ -43,3 +43,24 @@ def verification_code(account_id: str, account_email: str):
                 'token': 'Bearer {}'.format(token),
                 'expired': '1 Minutes'
             })
+
+# This to do verification account
+def verification_account(account_id: str, account_code: int):
+    if is_none(account_id) or is_none(account_code):
+        return response_util.http_bad_request('Fill all the request body!')
+    else:
+        verification_query = VerificationModel.query.filter_by(owner_id=account_id).first()
+        if not verification_query:
+            return response_util.http_not_found('account id not found!')
+        else:
+            if not verification_query.code == account_code:
+                return response_util.http_not_acceptable('Wrong verification code!')
+            else:
+                verification_query.email = True
+
+                try:
+                    db.session.commit()
+                except HTTPException:
+                    return response_util.http_internal_server_error()
+
+                return response_util.http_ok('Account verification success!')
