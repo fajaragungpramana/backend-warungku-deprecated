@@ -38,3 +38,7 @@ def is_none(value):
 # This to get body or form data
 def get_post(var: str):
     return request.form.get(var)
+
+# This to get parameter
+def get_param(var: str):
+    return request.args.get(var)
