@@ -105,7 +105,7 @@ password    : String
   status  : "Created",
   message : "Owner account has been created!",
   data    : {
-          id: "db338f42-365c-4711-87d2-1ad2bb4c2642"               
+     id: "db338f42-365c-4711-87d2-1ad2bb4c2642"               
   }
 }
 ```
@@ -144,7 +144,7 @@ password    : String
   status  : "OK",
   message : "Owner login success!",
   data    : {
-          id: "db338f42-365c-4711-87d2-1ad2bb4c2642"               
+     id: "db338f42-365c-4711-87d2-1ad2bb4c2642"               
   } 
 }
 ```
