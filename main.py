@@ -31,7 +31,7 @@ def owner_login():
 
 
 # Route owner verification code
-@app.route('/warungku/auth/code', methods=['GET'])
+@app.route('/warungku/owner/auth/code', methods=['GET'])
 @security_util.access_key_owner
 def owner_verification_code():
     return global_controller.verification_code(
