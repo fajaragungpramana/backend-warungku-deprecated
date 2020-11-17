@@ -13,6 +13,7 @@ class OwnerModel(db.Model):
     store = db.relationship('StoreModel', backref='owners')
     email = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(100), nullable=False)
+    verification = db.relationship('VerificationModel', backref='owners')
     create_at = db.Column(db.String(30), default=date_now())  # 15 Nov 2020 11:17:00
     update_at = db.Column(db.String(30), default=date_now())  # 15 Nov 2020 11:17:00
     ip_address = db.Column(db.String(30), default=get_ip_address())
