@@ -86,7 +86,7 @@ This is global response all endpoint can show it
 }
 ```
 
-### OwnerRegister
+### OwnerRegister [POST]
 <b>owner/auth/register</b>. This endpoint provide user to registration owner account
 ###### Header
 ```bash
@@ -126,7 +126,7 @@ password    : String
 }
 ```
 
-### OwnerLogin
+### OwnerLogin [POST]
 <b>owner/auth/login</b>. This endpoint provide user to login owner account
 
 ###### Header
@@ -173,8 +173,8 @@ password    : String
 }
 ```
 
-### GlobalVerification
-<b>auth/code</b>. This endpoint provide user to login owner account
+### OwnerVerificationCode [GET]
+<b>owner/auth/code</b>. This endpoint to sent code verification to owner account 
 
 ###### Header
 ```bash
@@ -203,10 +203,10 @@ id       : String
   data    : null
 }
 ```
-###### Response 406
+###### Response 404
 ```json5
 {
-  status  : "Not Acceptable",
+  status  : "Not Found",
   message : "Account id not found!",
   data    : null 
 }
