@@ -9,4 +9,4 @@ class VerificationModel(db.Model):
     account = db.Column(db.String(30), nullable=False)
     email = db.Column(db.Boolean, default=False, nullable=False)
     phone = db.Column(db.Boolean, default=False, nullable=False)
-    code = db.Column(db.Integer, nullable=False)
+    code = db.Column(db.Integer)
