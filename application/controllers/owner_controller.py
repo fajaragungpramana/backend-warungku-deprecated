@@ -22,8 +22,8 @@ def register(owner: OwnerModel):
                 return response_util.http_internal_server_error()
 
         return response_util.http_created('Owner account has been created!', {
-            'id': owner.id
-        })
+                    'id': owner.id
+                })
 
 
 # This function to do owner login
@@ -39,5 +39,5 @@ def login(owner: OwnerModel):
                 return response_util.http_unauthorized('Wrong password account!')
             else:
                 return response_util.http_ok('Owner login success!', {
-                    'id': owner.id
+                    'id': owner_query.id
                 })
