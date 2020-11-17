@@ -46,7 +46,7 @@ def owner_verification_code():
 @jwt_required
 def owner_verification_email():
     return global_controller.verification_account(
-        get_param('account_id'), get_param('account_code')
+        get_post('account_id'), get_post('account_code')
     )
 
 
