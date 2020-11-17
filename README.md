@@ -104,7 +104,9 @@ password    : String
 {
   status  : "Created",
   message : "Owner account has been created!",
-  data    : null 
+  data    : {
+          id: "db338f42-365c-4711-87d2-1ad2bb4c2642"               
+  }
 }
 ```
 ###### Response 400
@@ -141,7 +143,9 @@ password    : String
 {
   status  : "OK",
   message : "Owner login success!",
-  data    : null 
+  data    : {
+          id: "db338f42-365c-4711-87d2-1ad2bb4c2642"               
+  } 
 }
 ```
 ###### Response 400
