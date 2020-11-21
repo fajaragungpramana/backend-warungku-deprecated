@@ -41,11 +41,17 @@ def login(owner: OwnerModel):
     else:
         owner_query = OwnerModel.query.filter_by(email=owner.email).first()
         if not owner_query:
-            return response_util.http_not_acceptable('Account is not registered!')
+            return response_util.http_not_found('Account is not registered!')
         else:
             if not security_util.verify_password(owner_query.password, owner.password):
-                return response_util.http_unauthorized('Wrong password account!')
+                return response_util.http_not_acceptable('Wrong password account!')
             else:
-                return response_util.http_ok('Owner login success!', {
-                    'id': owner_query.id
-                })
+                verification_query = VerificationModel.query.filter(
+                    (VerificationModel.owner_id == owner.id) or (VerificationModel.email == 0)
+                ).first()
+                if verification_query:
+                    return response_util.http_unauthorized('Owner login success, but account is not verified!')
+                else:
+                    return response_util.http_ok('Owner login success!', {
+                        'id': owner_query.id
+                    })
