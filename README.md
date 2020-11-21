@@ -156,11 +156,20 @@ password    : String
   data    : null 
 }
 ```
+###### Response 404
+```json5
+{
+  status  : "Not Found",
+  message : "Account is not registered!",
+  data    : null 
+}
+
+```
 ###### Response 406
 ```json5
 {
   status  : "Not Acceptable",
-  message : "Account is not registered!",
+  message : "Wrong password!",
   data    : null 
 }
 ```
@@ -168,7 +177,7 @@ password    : String
 ```json5
 {
   status  : "Unauthorized",
-  message : "Wrong password account!",
+  message : "Owner login success, but account not verified!",
   data    : null 
 }
 ```
