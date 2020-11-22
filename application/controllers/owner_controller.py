@@ -47,9 +47,9 @@ def login(owner: OwnerModel):
                 return response_util.http_not_acceptable('Wrong password account!')
             else:
                 verification_query = VerificationModel.query.filter(
-                    (VerificationModel.owner_id == owner.id) or (VerificationModel.email == 0)
+                    (VerificationModel.owner_id == owner_query.id) or VerificationModel.email
                 ).first()
-                if verification_query:
+                if not verification_query:
                     return response_util.http_unauthorized('Owner login success, but account is not verified!')
                 else:
                     return response_util.http_ok('Owner login success!', {
