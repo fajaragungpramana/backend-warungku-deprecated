@@ -51,6 +51,6 @@ def login(owner: OwnerModel):
                 ).first()
                 data = {'id': owner_query.id}
                 if not verification_query:
-                    return response_util.http_unauthorized('Owner login success, but account is not verified!', data)
+                    return response_util.http_accepted('Owner login success, but account is not verified!', data)
                 else:
                     return response_util.http_ok('Owner login success!', data)
