@@ -173,12 +173,14 @@ password    : String
   data    : null 
 }
 ```
-###### Response 401
+###### Response 202
 ```json5
 {
-  status  : "Unauthorized",
+  status  : "Accepted",
   message : "Owner login success, but account not verified!",
-  data    : null 
+  data    : {
+     id: "db338f42-365c-4711-87d2-1ad2bb4c2642"               
+  }
 }
 ```
 
