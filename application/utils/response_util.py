@@ -34,6 +34,14 @@ def http_created(message: str, data = None):
         'data': data
     }, HTTPStatus.CREATED)
 
+# Handle response accepted
+def http_accepted(message: str, data = None):
+    return json_response({
+        'status': 'Accepted',
+        'message': message,
+        'data': data
+    }, HTTPStatus.ACCEPTED)
+
 # Handle response bad data sent from client
 def http_bad_request(message: str, data = None):
     return json_response({
