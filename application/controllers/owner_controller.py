@@ -49,9 +49,8 @@ def login(owner: OwnerModel):
                 verification_query = VerificationModel.query.filter(
                     (VerificationModel.owner_id == owner_query.id) or VerificationModel.email
                 ).first()
+                data = {'id': owner_query.id}
                 if not verification_query:
-                    return response_util.http_unauthorized('Owner login success, but account is not verified!')
+                    return response_util.http_unauthorized('Owner login success, but account is not verified!', data)
                 else:
-                    return response_util.http_ok('Owner login success!', {
-                        'id': owner_query.id
-                    })
+                    return response_util.http_ok('Owner login success!', data)
