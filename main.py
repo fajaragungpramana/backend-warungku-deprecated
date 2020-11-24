@@ -1,7 +1,7 @@
 from flask_jwt_extended import jwt_required
 
 from application import app, OwnerModel, StoreModel
-from application.controllers import owner_controller, global_controller
+from application.controllers import owner_controller, verification_controller
 from application.utils import get_post, get_param, security_util, get_unique_id
 
 
@@ -36,7 +36,7 @@ def owner_login():
 @app.route('/warungku/owner/auth/code', methods=['GET'])
 @security_util.access_key_owner
 def owner_verification_code():
-    return global_controller.verification_code(
+    return verification_controller.verification_code(
         get_param('account_id'), get_param('account_email')
     )
 
@@ -45,7 +45,7 @@ def owner_verification_code():
 @security_util.access_key_owner
 @jwt_required
 def owner_verification_email():
-    return global_controller.verification_account(
+    return verification_controller.verification_account(
         get_post('account_id'), get_post('account_code')
     )
 
