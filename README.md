@@ -230,6 +230,7 @@ account_email       : String
 ###### Header
 ```bash
 access_key_owner    : Key Owner
+Authorization       : access_token
 ```
 ###### Body
 ```bash
