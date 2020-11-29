@@ -40,6 +40,7 @@ def owner_verification_code():
         get_param('account_id'), get_param('account_email')
     )
 
+
 # Route account verification
 @app.route('/warungku/owner/auth/verification', methods=['POST'])
 @security_util.access_key_owner
@@ -48,6 +49,13 @@ def owner_verification_email():
     return verification_controller.verification_account(
         get_post('account_id'), get_post('account_code')
     )
+
+
+# Route account report result
+@app.route('/warungku/owner/report/today', methods=['GET'])
+@security_util.access_key_owner
+def owner_report_result():
+    return owner_controller.report_result(get_param('account_id'))
 
 
 if __name__ == '__main__':
