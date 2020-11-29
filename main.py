@@ -1,7 +1,7 @@
 from flask_jwt_extended import jwt_required
 
 from application import app, OwnerModel, StoreModel
-from application.controllers import owner_controller, verification_controller
+from application.controllers import owner_controller, verification_controller, tip_controller
 from application.utils import get_post, get_param, security_util, get_unique_id
 
 
@@ -56,6 +56,12 @@ def owner_verification_email():
 @security_util.access_key_owner
 def owner_report_result():
     return owner_controller.report_result(get_param('account_id'))
+
+
+# Route tip
+@app.route('/warungku/tip', methods=['GET'])
+def warungku_tip():
+    return tip_controller.tip_controller(get_param('category'))
 
 
 if __name__ == '__main__':
