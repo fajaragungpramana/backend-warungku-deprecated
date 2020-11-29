@@ -261,3 +261,41 @@ account_code        : Int
   data    : null 
 }
 ```
+
+### Tip [GET]
+<b>warungku/tip</b>. This endpoint to get tip data
+###### Body
+```bash
+category            : String        
+```
+###### Response 200
+```json5
+{
+  status  : "OK",
+  message : "Account verification success!",
+  data    : [
+        {
+            image     : "http://0.0.0.0:5000/static/tip/7be95895-d57f-448a-b625-71eddf614e34.jpg",           
+            title     : "Hadapi harga pasar yang kurang stabil.",
+            body      : "Body",
+            create_at : "29 Nov 2020 10:13:00"
+        } 
+  ]
+}
+```
+###### Response 400
+```json5
+{
+  status  : "Bad Request",
+  message : "Fill all the request body!",
+  data    : null
+}
+```
+###### Response 404
+```json5
+{
+  status  : "Not Found",
+  message : "No tip found!",
+  data    : null
+}
+```
