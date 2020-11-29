@@ -61,7 +61,7 @@ def owner_report_result():
 # Route tip
 @app.route('/warungku/tip', methods=['GET'])
 def warungku_tip():
-    return tip_controller.tip_controller(get_param('category'))
+    return tip_controller.tip_data(get_param('category'))
 
 
 if __name__ == '__main__':
