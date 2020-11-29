@@ -1,6 +1,6 @@
 from http.client import HTTPException
 
-from application.utils import is_none, response_util, security_util
+from application.utils import is_none, response_util, security_util, date_now
 from application import db, OwnerModel, VerificationModel
 
 
@@ -54,3 +54,16 @@ def login(owner: OwnerModel):
                     return response_util.http_accepted('Owner login success, but account is not verified!', data)
                 else:
                     return response_util.http_ok('Owner login success!', data)
+
+
+# This method serve trade report result
+def report_result(account_id: str, report_date: str = date_now('%d-%m-%Y')):
+    if is_none(account_id):
+        return response_util.http_bad_request('Fill all the request body!')
+    else:
+        return response_util.http_ok("Owner trade result!", {
+            'date': report_date,
+            'income': 10_454_000,
+            'net_income': 1_609_916,
+            'percentage': '+15.4%'
+        })
