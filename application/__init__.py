@@ -16,3 +16,4 @@ mail = Mail(app)
 from .models.owner_model import OwnerModel
 from .models.store_model import StoreModel
 from .models.verification_model import VerificationModel
+from .models.tip_model import TipModel
