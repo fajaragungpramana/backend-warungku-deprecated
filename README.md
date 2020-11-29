@@ -263,7 +263,7 @@ account_code        : Int
 ```
 
 ### Tip [GET]
-<b>warungku/tip</b>. This endpoint to get tip data
+<b>tip</b>. This endpoint to get tip data
 ###### Body
 ```bash
 category            : String        
