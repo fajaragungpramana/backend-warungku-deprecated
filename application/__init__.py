@@ -17,3 +17,5 @@ from .models.owner_model import OwnerModel
 from .models.store_model import StoreModel
 from .models.verification_model import VerificationModel
 from .models.tip_model import TipModel
+from .models.product_model import ProductModel
+from .models.product_image_model import ProductImageModel
