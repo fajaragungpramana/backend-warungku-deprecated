@@ -1,7 +1,8 @@
+from flask import request
 from flask_jwt_extended import jwt_required
 
-from application import app, OwnerModel, StoreModel
-from application.controllers import owner_controller, verification_controller, tip_controller
+from application import app, OwnerModel, StoreModel, ProductModel, ProductImageModel
+from application.controllers import owner_controller, verification_controller, tip_controller, product_controller
 from application.utils import get_post, get_param, security_util, get_unique_id
 
 
@@ -62,6 +63,30 @@ def owner_report_result():
 @app.route('/warungku/tip', methods=['GET'])
 def warungku_tip():
     return tip_controller.tip_data(get_param('category'))
+
+
+# Route add product
+@app.route('/warungku/owner/<account_id>/new/product', methods=['POST'])
+@security_util.access_key_owner
+def new_product(account_id):
+    return product_controller.new_product(
+        ProductModel(
+            id=get_unique_id(),
+            owner_id=account_id,
+            name=get_post('name'),
+            weight=get_post('weight'),
+            weight_unit=get_post('weight_unit'),
+            available=get_post('available'),
+            available_unit=get_post('available_unit'),
+            minimal_order=get_post('minimal_order'),
+            purchase_price=get_post('purchase_price'),
+            sell_price=get_post('sell_price'),
+            description=get_post('description'),
+            barcode=get_post('barcode'),
+            category=get_post('category'),
+            expired=get_post('expired'),
+        ), request.files.getlist('images')
+    )
 
 
 if __name__ == '__main__':
